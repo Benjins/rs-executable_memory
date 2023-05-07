@@ -123,7 +123,7 @@ unsafe fn alloc_executable_memory(page_size: usize, num_pages: usize) -> *mut u8
 
 #[cfg(any(target_os = "linux", target_os = "macos"))]
 unsafe fn dealloc_executable_memory(ptr: *mut u8, page_size: usize) {
-    libc::munmap(ptr as *mut _, page_size);
+    libc::free(ptr as *mut _);
 }
 #[cfg(target_os = "windows")]
 unsafe fn dealloc_executable_memory(ptr: *mut u8, _: usize) {

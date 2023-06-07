@@ -8,7 +8,7 @@ use libc;
 use winapi;
 
 
-pub const PAGE_SIZE: usize = 4096;
+pub const PAGE_SIZE: usize = 16 * 1024;
 
 
 #[derive(PartialEq, Eq)]
